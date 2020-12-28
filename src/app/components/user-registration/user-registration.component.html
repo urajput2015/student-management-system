@@ -1,0 +1,89 @@
+<!-- 
+  <mat-horizontal-stepper >
+    <mat-step [stepControl]="formGroup">
+        <form [formGroup]="formGroup">
+          <ng-template matStepLabel>Fill out required your login Information</ng-template>
+          <mat-form-field style="width: 20%;">
+            <mat-label>User Name</mat-label>
+            <input matInput appFieldError width="70%" placeholder="Enter Email ID as User Name" formControlName="userId">
+          </mat-form-field>  
+
+          <mat-form-field style="width: 20%;">
+            <mat-label>Password</mat-label>
+            <input matInput appFieldError type="password" placeholder="Choose your password" formControlName="password">
+          </mat-form-field>  
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+    <mat-step [stepControl]="nameGroup">
+      <form [formGroup]="nameGroup">
+        <ng-template matStepLabel>Fill out required your  name information</ng-template>
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input matInput appFieldError placeholder="Enter First Name" formControlName="firstName">
+        </mat-form-field>  
+        <mat-form-field>
+            <mat-label>Middle Name</mat-label>
+            <input matInput appFieldError placeholder="Enter First Name" formControlName="middleName">
+          </mat-form-field>  
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Enter First Name" formControlName="lastName">
+          </mat-form-field>  
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+   
+      <mat-step [stepControl]="addressGroup">
+        <form [formGroup]="addressGroup">
+          <ng-template matStepLabel>Fill out optional address information</ng-template>
+          <mat-form-field style="width: 30%;">
+            <mat-label>Street Address</mat-label>
+            <input matInput  appFieldError placeholder="Enter street" formControlName="line1">
+          </mat-form-field> 
+          
+          <mat-form-field>
+            <mat-label>City</mat-label>
+            <input matInput  appFieldError placeholder="Enter City" formControlName="city">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>State</mat-label>
+            <input matInput appFieldError placeholder="Select your state" formControlName="state">
+          </mat-form-field> 
+          <mat-form-field>
+            <mat-label>Zip/Postal Code</mat-label>
+            <input matInput appFieldError placeholder="Enter zip code" formControlName="zip">
+          </mat-form-field> 
+
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button >Reset</button>
+          <button mat-button (click)="register()">Register Me</button>
+        </div>
+      </mat-step>
+  </mat-horizontal-stepper>
+  
+  
+  <!-- Copyright 2020 Google LLC. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->
+
+
+  
+
+
+
+
+ -->

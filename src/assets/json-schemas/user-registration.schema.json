@@ -1,0 +1,228 @@
+{
+    "$id": "https://our-digital-bharat/user-registration.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "User Registration Schema",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string",
+                    "title": "First Name",
+                    "description": "First Name of a user.",
+                    "maxLength": 30
+                },
+                "middleName": {
+                    "type": "string",
+                    "title": "Middle Name",
+                    "description": "Middle Name of a user.",
+                    "maxLength": 30
+                },
+                "lastName": {
+                    "type": "string",
+                    "title": "Last Name",
+                    "description": "Last Name of a user.",
+                    "maxLength": 30
+                },
+                "alias": {
+                    "type": "string",
+                    "title": "Alias Name",
+                    "description": "Alias Name of a user.",
+                    "maxLength": 30
+                },
+                "suffix": {
+                    "type": "string",
+                    "title": "Suffix",
+                    "description": "Suffix of a user.",
+                    "maxLength": 5
+                }
+            },
+            "required": ["firstName","lastName"]
+        },
+        "userId": {
+            "title": "User Id",
+            "type": "string",
+            "maxLength": 100
+        },
+        "dateOfBirth": {
+            "title": "Date of birth",
+            "type": "string",
+            "maxLength": 10
+        },
+        "emailIds": {
+            "type": "array",
+            "title": "Email Id",
+            "items": {
+                "type": "string",
+                "maxLength": 10
+            },
+            "minItems": 1
+        },
+        "addresses": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "title": "Address Type",
+                        "enum": [
+                            "Home",
+                            "Business",
+                            "Other"
+                        ]
+                    },
+                    "line1": {
+                        "title": "Address line 1",
+                        "type": "string",
+                        "maxLength": 200
+                    },
+                    "line2": {
+                        "title": "Address line 2",
+                        "type": "string",
+                        "maxLength": 200
+                    },
+                    "line3": {
+                        "title": "Address line 3",
+                        "type": "string",
+                        "maxLength": 200
+                    },
+                    "city": {
+                        "title": "Address city",
+                        "type": "string",
+                        "maxLength": 50
+                    },
+                    "country": {
+                        "title": "Address country",
+                        "type": "string",
+                        "maxLength": 2
+                    },
+                    "state": {
+                        "title": "Address state",
+                        "type": "string",
+                        "maxLength": 3
+                    },
+                    "zip": {
+                        "title": "Address zip/postal code",
+                        "type": "string",
+                        "maxLength": 10
+                    }
+                },
+                "required": [
+                    "type",
+                    "line1",
+                    "city",
+                    "state",
+                    "country",
+                    "zip"
+                ]
+            },
+            "minItems": 1,
+            "maxItems": 3
+        },
+        "phones": {
+            "type": "array",
+            "title": "Phones",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "title": "Phone Type",
+                        "enum": [
+                            "Home",
+                            "Business",
+                            "Other"
+                        ]
+                    },
+                    "countryCode": {
+                        "title": "Contry Code",
+                        "type": "string",
+                        "maxLength": 5
+                    },
+                    "lineNumber": {
+                        "title": "Phone Number",
+                        "type": "string",
+                       
+                        "pattern": "^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$"
+
+                    }
+                },
+                "required": [
+                    "type",
+                    "lineNumber"
+                ]
+            },
+            "minItems": 1,
+            "maxItems": 3
+        },
+        "identifications": {
+            "type": "array",
+            "title": "Identifications",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "title": "ID type",
+                        "enum": [
+                            "DL",
+                            "PA",
+                            "ADC"
+                        ]
+                    },
+                    "idNumber": {
+                        "title": "ID Number",
+                        "type": "string",
+                        "maxLength": 30
+                    },
+                    "issuedBy": {
+                        "title": "ID Issed by",
+                        "type": "string",
+                        "maxLength": 100
+                    },
+                    "issuedDate": {
+                        "title": "ID issued date",
+                        "type": "string",
+                        "maxLength": 10
+                    },
+                    "expiryDate": {
+                        "title": "ID expiry date",
+                        "type": "string",
+                        "maxLength": 10
+                    }
+                },
+                "required": [
+                    "type",
+                    "idNumber"
+                ]
+            },
+            "minItems": 0,
+            "maxItems": 3
+        },
+        "userName": {
+            "type": "string",
+            "title": "User Name",
+            "description": "User Name of a user.",
+            "maxLength": 30
+        },
+        "password": {
+            "type": "string",
+            "title": "Password",
+            "description": "Password to be used for login into the system.",
+            "maxLength": 30
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "name",
+        
+       
+        "addresses",
+        "phones",
+       
+        "userId",
+        "password"
+    ]
+}
