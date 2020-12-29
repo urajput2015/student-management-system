@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: false,
+  environmentName: 'DEV',
+  apiUrl: 'https://student-management-system-bff.cfapps.io/api/'
 };

@@ -46,6 +46,7 @@ export class UserLoginComponent extends ComponentBase implements OnInit {
     if (this.formGroup.valid) {
       this.store.dispatch(new loginAction(this.formGroup.value))
     }
+    console.log('dddddddddddddd');
   }
 
 }

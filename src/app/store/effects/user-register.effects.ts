@@ -14,21 +14,21 @@ export class UserRegisterEffects {
     ) {
 
     }
-    @Effect()
-    register$ = this.actions$
-        .pipe(ofType<registrationActions>(UserRegisterActionTypes.registrationInitiated),
-            switchMap((action) =>
+    // @Effect()
+    // register$ = this.actions$
+    //     .pipe(ofType<registrationActions>(UserRegisterActionTypes.registrationInitiated),
+    //         switchMap((action) =>
 
-                this.authService.register(action.payload).pipe(
-                    // return a Success action when everything went OK
-                    map(() => {
-                        return (new registrationSuccessAction(null));
-                    }),
-                    // return a Failed action when something went wrong
-                    catchError((error: any) => of(new registrationFailureAction(error)))
-                ),
-            )
-        );
+    //             this.authService.register(action.payload).pipe(
+    //                 // return a Success action when everything went OK
+    //                 map(() => {
+    //                     return (new registrationSuccessAction(null));
+    //                 }),
+    //                 // return a Failed action when something went wrong
+    //                 catchError((error: any) => of(new registrationFailureAction(error)))
+    //             ),
+    //         )
+    //     );
 
     @Effect({ dispatch: false })
     registerSuccess$: Observable<any> = this.actions$.pipe(

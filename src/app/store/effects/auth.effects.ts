@@ -35,9 +35,10 @@ export class AuthEffects {
     loginSuccess$: Observable<any> = this.actions$.pipe(
         ofType<loginActions>(AuthActionTypes.loginSuccess),
         tap((res: any) => {
-          //  console.log('userdddddddddddddddd','sssssssssss',res.payload);
-         localStorage.setItem('token', res.payload.auth_token);
-        this.router.navigateByUrl('/register');
+            localStorage.setItem('token', res.payload.user.auth_token);
+            localStorage.setItem('user', res.payload.user.user);
+            this.router.navigateByUrl('/home');
+
         })
     );
 
