@@ -27,7 +27,7 @@ export class UserLoginComponent extends ComponentBase implements OnInit {
    
     super._ngOnInit();
     this.formGroup = this.createLoginForm();
-    this.validate();
+   
 
   }
 
@@ -40,13 +40,10 @@ export class UserLoginComponent extends ComponentBase implements OnInit {
 
 
   onSubmit() {
-    console.log('this.formGroup.valid',this.formGroup.valid)
-    FormValidationHelper.validateForm(this.formGroup, this.schema);
-   
+    this.validate();
     if (this.formGroup.valid) {
       this.store.dispatch(new loginAction(this.formGroup.value))
     }
-    console.log('dddddddddddddd');
   }
 
 }

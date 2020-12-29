@@ -10,14 +10,19 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'our-digital-bharat';
+  title = 'ngx-sms';
   isLoggedIn$: Observable<boolean>;
+  user$: Observable<any>;
   constructor(private store: Store<AppState>) {
-    console.log('store', this.store);
+    
   }
 
   ngOnInit() {
     this.isLoggedIn$ = this.store.select(state => (state.authState.isLoggedIn || state.registrationState.isLoggedIn));
+    this.user$ = this.store.select(state => (state.authState.user ||state.registrationState.user));
+
+  }
+  logout(){
 
   }
 

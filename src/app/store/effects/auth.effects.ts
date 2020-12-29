@@ -23,7 +23,9 @@ export class AuthEffects {
                 this.authService.login(action.payload).pipe(
                     // return a Success action when everything went OK
                     map((res: any) => {
-                        return (new loginSuccessAction({ user: res }))
+                        console.log('res',res);
+                        this.authService.token=res.auth_token;
+                        return (new loginSuccessAction({ user: res.user }))
                     }),
                     // return a Failed action when something went wrong
                     catchError((error: any) => of(new loginFailureAction({ error: error, user: null })))
@@ -35,8 +37,8 @@ export class AuthEffects {
     loginSuccess$: Observable<any> = this.actions$.pipe(
         ofType<loginActions>(AuthActionTypes.loginSuccess),
         tap((res: any) => {
-            localStorage.setItem('token', res.payload.user.auth_token);
-            localStorage.setItem('user', res.payload.user.user);
+           
+            this.authService.user=res.payload.user;
             this.router.navigateByUrl('/home');
 
         })

@@ -18,12 +18,11 @@ export class AuthService {
     return '';
   }
 
-  set setAuthToken(name: string) {
-
+  set token(token: string) {
+    localStorage.setItem('token', token);
+  }
+  set user(user: any) {
+    localStorage.setItem('user', user);
   }
 
-  // register(user: UserModel) {
-
-  //   return this.httpClient.post<UserModel>(`${this.baseUrl}user-register`, user);
-  // }
 }

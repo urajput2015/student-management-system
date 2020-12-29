@@ -8,10 +8,11 @@ export const initialLoginState: AuthState = {
 
 export function authReducer(state:AuthState=initialLoginState,action:loginActions):AuthState
 {
+   
     switch (action.type) {
         case AuthActionTypes.loginSuccess :
             {
-                console.log('callig success action');
+        
                 return {
                    user:action.payload.user,
                    isLoggedIn:true
