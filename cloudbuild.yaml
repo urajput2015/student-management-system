@@ -1,5 +1,26 @@
+# Cloud builder for the dotnet builder.
+
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'us-west2-docker.pkg.dev/awsmchefs-bff/quickstart-docker-repo/quickstart-image:tag1', '.' ]
-options:
-  logging: CLOUD_LOGGING_ONLY
+  args:
+  - 'build'
+  - '--tag=gcr.io/$PROJECT_ID/dotnet'
+  - '--tag=europe-docker.pkg.dev/$PROJECT_ID/ga/v1/dotnet'
+  - '--tag=asia-docker.pkg.dev/$PROJECT_ID/ga/v1/dotnet'
+  - '--tag=us-docker.pkg.dev/$PROJECT_ID/ga/v1/dotnet'
+  - '.'
+
+# Build the test projects
+- name: 'gcr.io/$PROJECT_ID/dotnet'
+  args: ['build']
+  dir: 'examples/TestApp-2.0'
+
+- name: 'gcr.io/$PROJECT_ID/dotnet'
+  args: ['build']
+  dir: 'examples/TestApp-2.1'
+
+images:
+- 'gcr.io/$PROJECT_ID/dotnet'
+- 'europe-docker.pkg.dev/$PROJECT_ID/ga/v1/dotnet'
+- 'asia-docker.pkg.dev/$PROJECT_ID/ga/v1/dotnet'
+- 'us-docker.pkg.dev/$PROJECT_ID/ga/v1/dotnet'
