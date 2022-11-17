@@ -24,3 +24,5 @@ images:
 - 'europe-docker.pkg.dev/$PROJECT_ID/ga/v1/dotnet'
 - 'asia-docker.pkg.dev/$PROJECT_ID/ga/v1/dotnet'
 - 'us-docker.pkg.dev/$PROJECT_ID/ga/v1/dotnet'
+options:
+  logging: CLOUD_LOGGING_ONLY
