@@ -3,3 +3,5 @@ steps:
   args: [ 'build', '-t', 'us-west2-docker.pkg.dev/awsmchefs-bff/quickstart-docker-repo/quickstart-image:tag1', '.' ]
 images:
 - 'us-west2-docker.pkg.dev/awsmchefs-bff/quickstart-docker-repo/quickstart-image:tag1'
+options:
+  logging: CLOUD_LOGGING_ONLY
